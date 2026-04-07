@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart - Pretty Blooms</title>
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Quick styles for cart table */
+    #cart table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    #cart th, #cart td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    #cart img {
+      width: 60px;
+    }
+    #cart input {
+      width: 60px;
+      padding: 5px;
+      text-align: center;
+    }
+    #cart a {
+      color: red;
+      font-size: 18px;
+      text-decoration: none;
+    }
+    #cart a:hover {
+      color: darkred;
+    }
+    #subtotal table td {
+      padding: 5px 10px;
+    }
+    button.normal {
+      padding: 10px 20px;
+      background-color: #9f1270;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button.normal:hover {
+      background-color: #e08dc0;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="header">
+    <a href="index.html"><img src="images/logo.png" class="logo" alt=""></a>
+    <ul id="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Products</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contactus.html">Contact</a></li>
+      <li id="lg-bag"><a class="active" href="cart.html"><i class="fas fa-shopping-bag"></i></a></li>
+      <a href="#" id="close"><i class="fas fa-times"></i></a>
+    </ul>
+  </section>
+
+  <section id="page-header" class="about-header">
+    <h2>Your Cart</h2>
+  </section>
+
+  <section id="cart" class="section-p1">
+    <table>
+      <thead>
+        <tr>
+          <th>Remove</th>
+          <th>Image</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Cart items will be rendered here dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+  <section id="cart-add" class="section-p1">
+    <div id="subtotal">
+      <h3>Cart Total</h3>
+      <table>
+        <tr>
+          <td>Cart Subtotal</td>
+          <td>R0.00</td>
+        </tr>
+        <tr>
+          <td>Shipping</td>
+          <td>Free</td>
+        </tr>
+        <tr>
+          <td><strong>Total</strong></td>
+          <td><strong>R0.00</strong></td>
+        </tr>
+      </table>
+      <button class="normal">Proceed to checkout</button>
+    </div>
+  </section>
+
+  <footer class="section-p1">
+    <div class="col"><p>&copy; 2025 Pretty Blooms</p></div>
+  </footer>
+
+  <script>
+    // Load cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const cartTableBody = document.querySelector("#cart tbody");
+    const cartSubtotal = document.querySelector("#subtotal table tr:nth-child(1) td:nth-child(2)");
+    const cartTotal = document.querySelector("#subtotal table tr:nth-child(3) td:nth-child(2)");
+
+    // Render cart function
+    function renderCart() {
+      cartTableBody.innerHTML = "";
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        let subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        let row = document.createElement("tr");
+
+        row.innerHTML = `
+          <td><a href="#" onclick="removeItem(${index})"><i class="fa-solid fa-circle-xmark"></i></a></td>
+          <td><img src="${item.image}" alt=""></td>
+          <td>${item.name}</td>
+          <td>R${item.price.toFixed(2)}</td>
+          <td><input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)"></td>
+          <td>R${subtotal.toFixed(2)}</td>
+        `;
+
+        cartTableBody.appendChild(row);
+      });
+
+      cartSubtotal.innerText = "R" + total.toFixed(2);
+      cartTotal.innerText = "R" + total.toFixed(2);
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    // Remove item from cart
+    function removeItem(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+
+    // Update quantity
+    function updateQuantity(index, quantity) {
+      cart[index].quantity = parseInt(quantity);
+      renderCart();
+    }
+
+    renderCart();
+
+    // Example: add product to cart (for testing)
+    /*
+    function addToCart(name, price, image){
+      let product = {name, price, image, quantity: 1};
+      cart.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+    */
+  </script>
+<script>
+  // Proceed to checkout button
+  document.querySelector("button.normal").addEventListener("click", () => {
+    if(cart.length === 0){
+      alert("Your cart is empty!");
+    } else {
+      window.location.href = "checkout.html";
+      // Optional: redirect to checkout page
+      // window.location.href = "checkout.html";
+    }
+  });
+</script>
+
+</body>
+</html>

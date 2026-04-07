@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery Information - Pretty Blooms</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f2e8ee;
+      color: #22151d;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    h1, h2 {
+      font-family: 'Georgia', serif;
+      color: #ba4c8a;
+      margin-bottom: 10px;
+    }
+
+    h1 { font-size: 24px; }
+    h2 { font-size: 18px; margin-top: 20px; }
+
+    p, li {
+      font-size: 14px;
+    }
+
+    ul { padding-left: 20px; }
+
+    .note {
+      background-color: #fff0f0;
+      padding: 10px;
+      border-left: 4px solid #ae6295;
+      margin: 10px 0;
+    }
+
+    .form-section {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #fff5f0;
+      border-radius: 8px;
+      border: 1px solid #f0dede;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea { resize: vertical; }
+
+    .form-buttons {
+      margin-top: 15px;
+    }
+
+    .form-buttons button {
+      padding: 10px 20px;
+      margin-right: 10px;
+      background-color: #9a2878;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .form-buttons button:hover { background-color: #754861; }
+
+    .delivery-fee, .total-amount {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #1d1010;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Delivery Information</h1>
+  <p>At <strong>Florea</strong>, we want your flowers to arrive fresh and beautiful, right on time. Here’s everything you need to know about our delivery process.</p>
+
+  <h2>1. Delivery Areas</h2>
+  <ul>
+    <li>Johannesburg, Pretoria, and surrounding areas</li>
+  </ul>
+
+  <h2>2. Delivery Times</h2>
+  <ul>
+    <li><strong>Same-Day Delivery:</strong> Orders placed before 10 AM  are eligible.</li>
+    <li><strong>Next-Day Delivery:</strong> Orders placed after 10 AM will be delivered the next business day.</li>
+    <li><strong>Scheduled Delivery:</strong> Choose a specific date up to 30 days in advance.</li>
+  </ul>
+  <div class="note"><strong>Note:</strong> Deliveries are only made on business days (Monday to Saturday).</div>
+
+  <h2>3. Delivery Fees</h2>
+  <ul>
+    <li>Orders over R2500: Free delivery</li>
+    <li>Orders under R2500: Depends on location</li>
+    <li>Remote areas: Additional charges may apply (we’ll confirm before delivery)</li>
+  </ul>
+
+  <h2>4. How to Ensure Successful Delivery</h2>
+  <ul>
+    <li>Provide accurate delivery details (address, apartment number, gate codes, etc.)</li>
+    <li>Include a contact number for the recipient</li>
+    <li>Make sure someone is available to receive the flowers</li>
+  </ul>
+
+  <h2>5. Handling Delays or Issues</h2>
+  <p>We take extra care to ensure your flowers arrive on time. In case of unexpected delays, our customer support team will contact you immediately.</p>
+
+  <h2>6. Gift Messages</h2>
+  <p>You can include a short note with your delivery. We’ll print it on a beautiful card and deliver it with your flowers.</p>
+
+  <!-- Delivery Form -->
+  <div class="form-section">
+    <h2>Delivery Details</h2>
+    <form id="deliveryForm">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="fullName" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="address">Delivery Address</label>
+      <textarea id="address" name="address" rows="2" required></textarea>
+
+      <label for="deliveryDate">Delivery Date</label>
+      <input type="date" id="deliveryDate" name="deliveryDate" required>
+
+      <label for="deliveryTime">Delivery Time</label>
+      <input type="time" id="deliveryTime" name="deliveryTime" required>
+
+      <label for="message">Your Message (max 500 characters)</label>
+      <textarea id="message" name="message" rows="4" maxlength="500"></textarea>
+
+      <label for="giftWrap">Gift Wrapping</label>
+      <select id="giftWrap" name="giftWrap" required>
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+      </select>
+
+      <label for="orderAmount">Order Amount (R)</label>
+      <input type="number" id="orderAmount" name="orderAmount" readonly value="0">
+
+      <div class="delivery-fee" id="deliveryFee">Delivery Fee: R0.00</div>
+      <div class="total-amount" id="totalAmount">Total Amount: R0</div>
+
+      <div class="form-buttons">
+        <button type="submit">Confirm Delivery</button>
+        <button type="button" onclick="saveDetails()">Save Details</button>
+        <button type="button" onclick="window.location.href='index.html'">Back to Home</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const orderAmountInput = document.getElementById('orderAmount');
+    const deliveryFeeDisplay = document.getElementById('deliveryFee');
+    const totalAmountDisplay = document.getElementById('totalAmount');
+
+    // Simulated cart items (replace this with real cart logic)
+    // Example cart: array of objects [{name:'Rose', price:200, qty:3}, ...]
+    const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+
+    function getCartTotal() {
+      let total = 0;
+      cartItems.forEach(item => {
+        total += item.price * item.qty;
+      });
+      return total;
+    }
+
+    function updateAmounts() {
+      const orderAmount = getCartTotal();
+      orderAmountInput.value = orderAmount.toFixed(2);
+
+      const deliveryFee = orderAmount >= 2500 ? 0 : 0;
+      deliveryFeeDisplay.textContent = `Delivery Fee: R${deliveryFee}`;
+
+      const totalAmount = orderAmount + deliveryFee;
+      totalAmountDisplay.textContent = `Total Amount: R${totalAmount.toFixed(2)}`;
+    }
+
+    // Save form details to localStorage
+    function saveDetails() {
+      const form = document.getElementById('deliveryForm');
+      const formData = new FormData(form);
+      const savedData = {};
+      formData.forEach((value, key) => {
+        savedData[key] = value;
+      });
+      localStorage.setItem('deliveryForm', JSON.stringify(savedData));
+      alert('Your details have been saved!');
+    }
+
+    // Load saved form details
+    window.addEventListener('load', () => {
+      // Update amounts first
+      updateAmounts();
+
+      const savedData = JSON.parse(localStorage.getItem('deliveryForm'));
+      if(savedData){
+        Object.keys(savedData).forEach(key => {
+          if(document.getElementById(key)){
+            document.getElementById(key).value = savedData[key];
+          }
+        });
+      }
+    });
+
+    // If cart changes on other page, update totals dynamically
+    window.addEventListener('storage', () => {
+      const newCart = JSON.parse(localStorage.getItem('cartItems') || '[]');
+      cartItems.length = 0; // clear old array
+      newCart.forEach(item => cartItems.push(item)); // update
+      updateAmounts();
+    });
+
+    // Optional: handle form submission
+    document.getElementById('deliveryForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Delivery confirmed! Thank you for your order.');
+      this.reset();
+      localStorage.removeItem('deliveryForm');
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Products - Pretty Blooms</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+  /* Navbar cart badge */
+  #cart-count {
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+  }
+
+  #navbar li {
+    position: relative;
+  }
+</style>
+
+</head>
+
+<body>
+    
+    <section id="header"> 
+        <a href="#"><img src="images/logo.png" class="logo" alt=""></a>
+
+          <ul id="navbar">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="Shop.html">Products</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="contactus.html">Contact</a></li>
+            <li>
+              <a href="cart.html">
+                <i class="far fa-shopping-bag"></i>
+                <span id="cart-count">0</span>
+              </a>
+            </li>
+            <a href="#" id="close"><i class="far fa-times"></i></a>
+          </ul>
+        
+        <div id="mobile">
+          <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+          <i id="bar" class="fas fa-outdent"></i>
+        </div>
+      </section>
+
+      <section id="hero">
+        <h4>Flowers for every occassion</h4>
+        <h2>All things floral</h2>
+        <p>Save more when you purchase more</p>
+        
+        <!-- SHOP NOW BUTTON -->
+  <a href="shop.html" class="shop-btn">Shop Now</a>
+</section>
+
+      <section id="feature" class="section-p1">
+        <div class="fe-box">
+          <a href="sales.html">
+            <img src="images/image24.png" alt="">
+            <h6>Special Sale</h6>
+          </a>
+        </div>
+        <div class="fe-box">
+          <a href="flowercare.html">
+            <img src="images/image26.png" alt="">
+            <h6>Flower Care</h6>
+          </a>
+        </div>
+        <div class="fe-box">
+          <a href="membership.html">
+            <img src="images/image25.jpg" alt="">
+            <h6>Membership</h6>
+          </a>
+        </div>
+        <div class="fe-box">
+          <a href="contactus.html">
+            <img src="images/image27.jpg" alt="">
+            <h6>Support</h6>
+          </a>
+        </div>
+      </section>
+
+      <section id="banner" class="section-m1">
+        <h4>Fresh and artificial flowers everyday</h4>
+        <h2>Get up to <span>50% Off</span> when purchasing 8 or more arrangements. </h2>
+        <a href="shop.html"><button class="explore-btn">Explore More</button></a>
+      </section>
+
+      <footer class="section-p1"> 
+        <div class="col">
+          <img class="logo" src="images/logo.png" alt="">
+          <h4>Contact</h4>
+          <p><strong>Address: </strong> Johannesburg</p>
+          <p><strong>Phone:</strong> 1234567890</p>
+          <p><strong>Hours:</strong> 09:00 - 17:00, Mon-Sat</p>
+        </div>
+
+        <div class="col">
+          <h4>About</h4>
+          <a href="about.html">About us</a>
+          <a href="delivery.html">Delivery Information</a>
+          <a href="privacypolicy.html">Privacy Policy</a>
+          <a href="terms.html">Terms and conditions</a>
+          <a href="contactus.html">Contact us</a>
+        </div>
+
+        <div class="col">
+          <h4>My Account</h4>
+          <a href="signin.html">Sign In</a>
+          <a href="cart.html">View cart</a>
+      </div>
+      </footer>
+
+      <script src="script.js"></script>
+    </body>
+
+    </html>
+

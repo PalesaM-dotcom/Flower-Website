@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - Pretty Blooms</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Quick styles */
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .product-box {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      width: 200px;
+    }
+    .product-box img {
+      width: 100%;
+      height: auto;
+    }
+    .add-cart {
+      margin-top: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    /* Navbar cart badge */
+    #cart-count {
+      background-color: red;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 50%;
+      position: absolute;
+      top: -5px;
+      right: -10px;
+    }
+    #navbar li {
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <section id="header">
+    <a href="index.html"><img src="images/logo.png" class="logo" alt=""></a>
+    <ul id="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a class="active" href="shop.html">Products</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="cart.html">
+          <i class="fas fa-bag-shopping"></i>
+          <span id="cart-count">0</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- SHOP SECTION -->
+  <section id="product-list" class="section-p1">
+    <h2>Our Best Sellers</h2>
+    <p>Fresh, beautiful blooms for every occasion</p>
+    
+    <div class="product-container">
+      <!-- Example product -->
+      <div class="product-box">
+        <img src="images/image6.jpeg" alt="Rose Bouquet">
+        <h4>Spring</h4>
+        <p>R500.00</p>
+        <button class="add-cart" data-name="Rose Bouquet" data-price="500">Add to Cart</button>
+      </div>
+      <div class="product-box">
+        <img src="images/image8.jpeg" alt="Majestic Blooms">
+        <h4>Majestic Blooms</h4>
+        <p>R450.00</p>
+        <button class="add-cart" data-name="Majestic Blooms" data-price="450">Add to Cart</button>
+      </div>
+      <div class="product-box">
+        <img src="images/image5.jpeg" alt="Spring Radiance">
+        <h4>Spring Radiance</h4>
+        <p>R400.00</p>
+        <button class="add-cart" data-name="Spring Radiance" data-price="400">Add to Cart</button>
+      </div>
+      <div class="product-box">
+        <img src="images/image11.jpeg" alt="Sweet Blooms">
+        <h4>Sweet Blossom box</h4>
+        <p>R700.00</p>
+        <button class="add-cart" data-name="Sweet Blooms" data-price="700">Add to Cart</button>
+      </div>
+      <div class="product-box">
+        <img src="images/image9.jpeg" alt="The Luxe collection">
+        <h4>The Luxe collection</h4>
+        <p>R980.00</p>
+        <button class="add-cart" data-name="The Luxe collection" data-price="980">Add to Cart</button>
+      </div>
+      <div class="product-box">
+        <img src="images/image7.jpeg" alt="Radiant Joy">
+        <h4>Radiant Joy</h4>
+        <p>R800.00</p>
+        <button class="add-cart" data-name="Radiant Joy" data-price="800">Add to Cart</button>
+      </div>
+      <div class="product-box">
+        <img src="images/image12.jpeg" alt="Autum Charm">
+        <h4>Autum Charm</h4>
+        <p>R450.00</p>
+        <button class="add-cart" data-name="Autum Charm" data-price="450">Add to Cart</button>
+      </div>
+      <div class="product-box">
+        <img src="images/image 15.jpeg" alt="Paradise in a box">
+        <h4>Paradise in a box</h4>
+        <p>R750.00</p>
+        <button class="add-cart" data-name="Paradise in a box" data-price="750">Add to Cart</button>
+      </div>
+      <div class="product-box">
+        <img src="images/image34.jpeg" alt="Kiss of roses">
+        <h4>Kiss of roses</h4>
+        <p>R900.00</p>
+        <button class="add-cart" data-name="Kiss of roses" data-price="900">Add to Cart</button>
+      </div>
+      <div class="product-box">
+        <img src="images/image30.jpeg" alt="The Royal arrangement">
+        <h4>The Royal arrangement</h4>
+        <p>R850.00</p>
+        <button class="add-cart" data-name="The Royal arrangement" data-price="850">Add to Cart</button>
+      </div>
+      <div class="product-box">
+        <img src="images/image32.jpeg" alt="Eternal Grace">
+        <h4>Eternal Grace</h4>
+        <p>R650.00</p>
+        <button class="add-cart" data-name="Eternal Grace" data-price="650">Add to Cart</button>
+      </div>
+      <div class="product-box">
+        <img src="images/image33.jpeg" alt="Serenity blooms">
+        <h4>Serenity blooms</h4>
+        <p>R650.00</p>
+        <button class="add-cart" data-name="Serenity blooms" data-price="650">Add to Cart</button>
+      </div>
+      <!-- Add more products similarly -->
+    </div>
+    
+  </section>
+
+  <footer class="section-p1">
+    <div class="col">
+      <img class="logo" src="images/logo.png" alt="">
+      <h4>Contact</h4>
+      <p><strong>Address:</strong> Johannesburg</p>
+      <p><strong>Phone:</strong> 1234567890</p>
+      <p><strong>Hours:</strong> 09:00 - 17:00, Mon-Sat</p>
+    </div>
+  </footer>
+
+  <script>
+    // Load cart
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Save cart
+    function saveCart() {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    // Update navbar cart count
+    function updateCartCount() {
+      const count = cart.reduce((total, item) => total + item.quantity, 0);
+      document.getElementById("cart-count").innerText = count;
+    }
+
+    updateCartCount();
+
+    // Add to cart function
+    function addToCart(name, price, image) {
+  const existing = cart.find(item => item.name === name);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({name, price: parseFloat(price), image, quantity:1});
+  }
+  saveCart();
+  updateCartCount();
+
+  alert(`${name} added to cart!`);
+
+  // Check if total items > 8
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  if (totalItems > 8) {
+    alert("🎉 Congratulations! You are eligible for 50% off!");
+  }
+}
+    
+
+    // Attach click events to buttons
+    document.querySelectorAll(".add-cart").forEach(button => {
+      button.addEventListener("click", () => {
+        const name = button.getAttribute("data-name");
+        const price = button.getAttribute("data-price");
+        const image = button.parentElement.querySelector("img").src;
+        addToCart(name, price, image);
+      });
+    });
+  </script>
+</body>
+</html>

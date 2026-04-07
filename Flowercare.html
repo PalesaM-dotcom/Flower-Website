@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flower Care - Pretty Blooms</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* FLOWER CARE PAGE STYLING */
+    .flower-care-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .flower-care-page h1 {
+      font-size: 48px;
+      color: #a15596; /* purple */
+      margin-bottom: 40px;
+    }
+
+    .care-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .care-box {
+      border: 2px solid #a15596;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      text-align: left;
+    }
+
+    .care-box h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #000; /* black */
+    }
+
+    .care-box ul {
+      padding-left: 20px;
+      color: #000; /* black */
+    }
+
+    .home-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 30px;
+      background-color: #a15596; /* purple */
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background-color: #8a3b80;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .care-box {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <section id="header">
+    <a href="index.html"><img src="images/logo.png" class="logo" alt=""></a>
+    <ul id="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Products</a></li>
+      <li><a class="active" href="flower-care.html">Flower Care</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contactus.html">Contact</a></li>
+    </ul>
+  </section>
+
+  <!-- FLOWER CARE CONTENT -->
+  <section class="flower-care-page">
+    <h1>Flower Care</h1>
+
+    <div class="care-boxes">
+      <div class="care-box">
+        <h3>Special Tips for Cut Flowers</h3>
+        <ul>
+          <li>Cut stems at an angle under water to prevent air bubbles.</li>
+          <li>Change water every 2–3 days and remove leaves submerged in water.</li>
+          <li>Add flower food or a teaspoon of sugar and a few drops of bleach to extend life.</li>
+        </ul>
+      </div>
+
+      <div class="care-box">
+        <h3>Temperature & Humidity</h3>
+        <ul>
+          <li>Most flowers thrive in moderate temperatures: 18–25°C (65–77°F).</li>
+          <li>Indoor flowers like orchids and African violets enjoy higher humidity. Use a humidity tray or mist lightly.</li>
+        </ul>
+      </div>
+
+      <div class="care-box">
+        <h3>Water & Maintenance</h3>
+        <ul>
+          <li>Change water every 2–3 days and re-trim stems each time.</li>
+          <li>Remove wilted flowers or leaves promptly.</li>
+          <li>Refill water as it drops to keep stems submerged.</li>
+        </ul>
+      </div>
+
+      <div class="care-box">
+        <h3>Placement</h3>
+        <ul>
+          <li>Keep the vase in a cool area, away from direct sunlight, heaters, or drafts.</li>
+        </ul>
+      </div>
+
+      <div class="care-box">
+        <h3>Optional Tips to Extend Life</h3>
+        <ul>
+          <li>Adding a few drops of bleach or a penny to the vase can reduce bacteria.</li>
+          <li>For flowers like roses, adding a pinch of sugar helps them stay fresh longer.</li>
+          <li>Some flowers, like tulips and daffodils, grow even in the vase, so make sure the vase is tall enough.</li>
+          <li>Avoid placing near fruits, especially bananas and apples—they release ethylene gas, which makes flowers age faster.</li>
+        </ul>
+      </div>
+    </div>
+
+    <a href="index.html" class="home-btn">Return to Home</a>
+  </section>
+</body>
+</html>
